@@ -14,7 +14,7 @@ limitations under the License.
 #pragma once
 
 #include <stdint.h>
-
+#include <math.h>
 #if OF_VERSION_MINOR < 10
 #include "ofJson.h"
 #endif
