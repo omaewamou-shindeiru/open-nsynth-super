@@ -103,38 +103,6 @@ EOF
 }
 
 
-setup_openframeworks() {
-    if ! [ -e /home/pi/opt/of ]
-    then
-        echo "Cloning openFrameworks"
-        mkdir -p /home/pi/opt
-        (
-            cd /home/pi/opt
-            git clone --branch 0.10.0 --depth 1 https://github.com/openframeworks/openFrameworks.git of
-            ./of/scripts/linux/download_libs.sh
-        )
-    fi
-}
-
-
-setup_openocd() {
-    if ! [ -e /usr/bin/openocd ]
-    then
-        echo "Installing OpenOCD"
-        mkdir -p /home/pi/tmp/setup
-        (
-            cd /home/pi/tmp/setup
-            git clone --branch v0.10.0 --depth 1 git://git.code.sf.net/p/openocd/code openocd
-            cd openocd
-            ./bootstrap
-            ./configure --prefix=/usr --enable-sysfsgpio --enable-bcm2835gpio
-            make -j4
-            sudo make install
-        )
-    fi
-}
-
-
 if [ "$(whoami)" = "root" ]
 then
     setup_audio
@@ -144,6 +112,4 @@ then
     setup_service
 else
     sudo bash $0
-    setup_openframeworks
-    setup_openocd
 fi
