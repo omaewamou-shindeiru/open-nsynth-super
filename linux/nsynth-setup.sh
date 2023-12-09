@@ -114,6 +114,8 @@ setup_openframeworks() {
             mv openFrameworks of
             cd of/scripts/linux/debian && sudo ./install_dependencies.sh
             cd ~/opt/of/scripts/linux &&  ./download_libs.sh
+            mkdir  /home/pi/opt/of/apps/open-nsynth
+            cp -r /home/pi/open-nsynth-super/app/open-nsynth /home/pi/opt/of/apps/open-nsynth/
         )
     fi
 }
