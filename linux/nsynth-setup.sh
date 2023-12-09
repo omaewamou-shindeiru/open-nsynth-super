@@ -63,13 +63,13 @@ setup_serial() {
 
 install_deps() {
     apt-get update
-    apt-get install -y i2c-tools python-smbus gdb-arm-none-eabi gcc-arm-none-eabi \
+    apt-get install -y i2c-tools python3-smbus gdb-arm-none-eabi gcc-arm-none-eabi \
         git autoconf libtool make pkg-config build-essential \
         freeglut3-dev libasound2-dev libxmu-dev libxxf86vm-dev g++ libgl1-mesa-dev \
         libglu1-mesa-dev libraw1394-dev libudev-dev libdrm-dev libglew-dev \
         libopenal-dev libsndfile-dev libfreeimage-dev libcairo2-dev \
         libfreetype6-dev libssl-dev libpulse-dev libusb-1.0-0-dev libgtk-3-dev \
-        libopencv-dev libegl1-mesa-dev libgles1-mesa-dev libgles2-mesa-dev \
+        libopencv-dev libegl1-mesa-dev libgles2-mesa-dev \
         libassimp-dev librtaudio-dev libboost-filesystem-dev libglfw3-dev \
         liburiparser-dev libcurl4-openssl-dev libpugixml-dev libgstreamer1.0-dev \
         libgstreamer-plugins-base1.0-dev gstreamer1.0-libav \
