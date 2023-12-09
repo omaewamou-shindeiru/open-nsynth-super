@@ -103,6 +103,22 @@ EOF
 }
 
 
+setup_openframeworks() {
+    if ! [ -e /home/pi/opt/of ]
+    then
+        echo "Cloning openFrameworks"
+        mkdir -p /home/pi/opt
+        (
+            cd /home/pi/opt
+            git clone --depth=1 https://github.com/openframeworks/openFrameworks.git
+            mv openFrameworks of
+            cd of/scripts/linux/debian && sudo ./install_dependencies.sh
+            cd ~/opt/of/scripts/linux &&  ./download_libs.sh
+        )
+    fi
+}
+
+
 if [ "$(whoami)" = "root" ]
 then
     setup_audio
@@ -112,4 +128,5 @@ then
     setup_service
 else
     sudo bash $0
+    setup_openframeworks
 fi
